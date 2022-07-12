@@ -160,31 +160,9 @@ mamba install r-base r-essentials r-irkernel -y
 # check logs
 # journalctl -u rstudio-server
 
-# create configration
-cat > /etc/rstudio/rserver.conf <<EOF
-# add RServer config here
-# Server Configuration File
-#server-user=root
-#server-user=rstudio-server
-#server-user=jupyter-fja32
-rsession-ld-library-path=/opt/tljh/user/lib:/opt/tljh/user/lib/R/lib
-#rsession-which-r=/opt/tljh/user/bin/R
-rsession-which-r=/opt/tljh/user/lib/R/bin/R
-#auth-required-user-group=rstudio_users
-#
-www-port=82
-# www-address=127.0.0.1
-#server-app-armor-enabled=0
-#server-data-dir=/var/run/rstudio-server
-server-set-umask=0
-
-EOF
-
-#sleep 5
-#systemctl restart rstudio-server
 
 # KOTLIN support INSTALLATIOB
-sudo -E mamba install -c jetbrains kotlin-jupyter-kernel
+# sudo -E mamba install -c jetbrains kotlin-jupyter-kernel
 
 
 # reload proxy and hub for new changes to take effect
