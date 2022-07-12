@@ -4,8 +4,21 @@
 # and paste this script
 ADMIN_USER_NAME=fja32
 
-apt-get update -y
-apt-get upgrade -y
+#jupyterhub-base-ubuntu-20
+# sudo apt-get update -y
+# sudo apt-get upgrade -y
+
+### DISABLE AND REMOVE SNAPD
+sudo snap remove lxd
+sudo snap remove core20
+sudo snap remove snapd
+
+sudo systemctl disable --now snapd
+sudo systemctl disable --now snapd.socket
+sudo systemctl disable --now snapd.seeded
+
+sudo apt -y purge snapd
+rmdir /root/snap
 
 apt install docker.io -y
 
@@ -154,6 +167,19 @@ sudo -E pip install jupyter-rsession-proxy
 # Install Base R packages + essentials
 mamba install r-base r-essentials r-irkernel -y
 
+# Enable useful bioconductor packages
+# mamba install -c bioconda bioconductor-ggbio bioconductor-genomicranges
+
+# Support for Java in R
+mamba install -c r r-rjava -y
+
+# Support for R Devtools
+# mamba install -c r r-devtools -y
+
+# Install Sommer (use install.packages('sommer') if below does not work)
+# mamba install -c r r-sommer -y
+# mamba install -c r r-arrow -y
+
 
 # RSTUDIO installation
 
@@ -162,7 +188,7 @@ mamba install r-base r-essentials r-irkernel -y
 
 
 # KOTLIN support INSTALLATIOB
-# sudo -E mamba install -c jetbrains kotlin-jupyter-kernel
+mamba install -c jetbrains kotlin-jupyter-kernel
 
 
 # reload proxy and hub for new changes to take effect
