@@ -174,20 +174,25 @@ mamba install r-base r-essentials r-irkernel -y
 mamba install -c r r-rjava -y
 
 # Support for R Devtools
-# mamba install -c r r-devtools -y
+mamba install -c r r-devtools -y
 
-# Install Sommer (use install.packages('sommer') if below does not work)
-# mamba install -c r r-sommer -y
-# mamba install -c r r-arrow -y
+# Install Sommer 
+### note: if the conda r-sommer install below does not work use:
+#       devtools::install_github('covaruber/sommer')
+#        or install.packages('sommer')
+## mamba install -c r r-sommer -y
+# install sommer with devtools
+# 
+mamba install -c r r-arrow -y
+# install rTASSEL
+# mamba install -c bioconda bioconductor-biocstyle
+# mamba install -c bioconda bioconductor-summarizedexperiment
+# devtools::install_bitbucket(repo = "bucklerlab/rtassel", ref = "master", build_vignettes = TRUE)
 
+# ==== RSTUDIO script
+# ilci_hub_scripts/install_rstudio_and_shiny.sh
 
-# RSTUDIO installation
-
-# check logs
-# journalctl -u rstudio-server
-
-
-# KOTLIN support INSTALLATIOB
+# === KOTLIN support INSTALLATION
 mamba install -c jetbrains kotlin-jupyter-kernel
 
 
@@ -197,3 +202,8 @@ mamba install -c jetbrains kotlin-jupyter-kernel
 
 echo "INSTALLATION DONE" > ~/provision_status.txt
 
+
+#Notes:
+# should remove!!!
+# ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCt8rTQbM/UpUdt3g94eZNB09hWo+903SSx+/57CxBZboN48yePfB1JZUiJ6ndVxOfeeXHhlAlhzeuo6uu4DPnAMU3BSC23Mz5d0BV5MGBVL7gY8/WUiejKkRlDwHPeYpp/HfknbIQuRdTUg9ZhOQ8LmzZAEWMzOEvhdH9/XsgjecJHhH7DXasNfsOCWpep8VomVznIG7j+Tqq0WqSCbVS8IJftOBe/aPd14/fvKReRSOCsgixRgzSajnLDPVB7mPYOlqBU1KhQWh+kQ/prGRnHg0B4fDTqcnlajPDYaTtUU/b6+tOofzoZOxLMi2M+gHQFqMo+DLuYsYdmGw7/1/5vOhfRgxbMFg2aWjgdRKiHg5RCBjo+RBnjgvQROXmTzpFtxwod+SSf6jJRpS16E32iAexCC6Ab/o+/DlugGq7X4zsX7wupz6CSJ8MZJ4+Wjxs/Gc7gkjM7NyvlKwJxiTnccU63c9V9jwKjfyARUkL8gIyoBJZcwoVZ190bBNGmB4k= admin@ubuntu
+#
