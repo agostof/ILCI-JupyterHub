@@ -2,7 +2,8 @@
 
 # Start the droplet with additional data
 # and paste this script
-ADMIN_USER_NAME=fja32
+# Change admin suer name if needed
+ADMIN_USER_NAME=admin
 
 #jupyterhub-base-ubuntu-20
 # sudo apt-get update -y
@@ -48,7 +49,8 @@ curl -L https://tljh.jupyter.org/bootstrap.py \
 
 # activate user environment
 . /opt/tljh/user/bin/activate
-conda install -c conda-forge mamba
+# mamba is already installed
+#conda install -c conda-forge mamba
 
 # JAVA SUPPORT 
 mamba install -c conda-forge openjdk
@@ -196,9 +198,15 @@ mamba install -c r r-arrow -y
 mamba install -c jetbrains kotlin-jupyter-kernel
 
 
+# ### LETS ENCRYPT CONFIGURATION
+# details here: https://tljh.jupyter.org/en/latest/howto/admin/https.html#howto-
+# sudo tljh-config set https.enabled true
+# sudo tljh-config set https.letsencrypt.email ACCOUNT@DOMAIN.com
+# sudo tljh-config add-item https.letsencrypt.domains jupyterhub-workshop-01.ilc
+
 # reload proxy and hub for new changes to take effect
-# tljh-config reload proxy
-# tljh-config reload hub  
+tljh-config reload proxy
+tljh-config reload hub  
 
 echo "INSTALLATION DONE" > ~/provision_status.txt
 
@@ -207,3 +215,7 @@ echo "INSTALLATION DONE" > ~/provision_status.txt
 # should remove!!!
 # ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCt8rTQbM/UpUdt3g94eZNB09hWo+903SSx+/57CxBZboN48yePfB1JZUiJ6ndVxOfeeXHhlAlhzeuo6uu4DPnAMU3BSC23Mz5d0BV5MGBVL7gY8/WUiejKkRlDwHPeYpp/HfknbIQuRdTUg9ZhOQ8LmzZAEWMzOEvhdH9/XsgjecJHhH7DXasNfsOCWpep8VomVznIG7j+Tqq0WqSCbVS8IJftOBe/aPd14/fvKReRSOCsgixRgzSajnLDPVB7mPYOlqBU1KhQWh+kQ/prGRnHg0B4fDTqcnlajPDYaTtUU/b6+tOofzoZOxLMi2M+gHQFqMo+DLuYsYdmGw7/1/5vOhfRgxbMFg2aWjgdRKiHg5RCBjo+RBnjgvQROXmTzpFtxwod+SSf6jJRpS16E32iAexCC6Ab/o+/DlugGq7X4zsX7wupz6CSJ8MZJ4+Wjxs/Gc7gkjM7NyvlKwJxiTnccU63c9V9jwKjfyARUkL8gIyoBJZcwoVZ190bBNGmB4k= admin@ubuntu
 #
+
+
+
+
