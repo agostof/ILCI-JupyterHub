@@ -161,6 +161,16 @@ pip install jupyterlab-spreadsheet-editor
 tljh-config set user_environment.default_app jupyterlab
 tljh-config reload
 
+# For performance tunning and other useful settings
+#  check: https://tljh.jupyter.org/en/latest/topic/idle-culler.html
+# set IDLE time culler
+tljh-config set services.cull.timeout 3600
+tljh-config reload
+
+# configurator https://tljh.jupyter.org/en/latest/topic/jupyterhub-configurator.html
+tljh-config set services.configurator.enabled False
+tljh-config reload
+
 
 # ========= R Language Support
 sudo -E pip install jupyter-shiny-proxy
@@ -170,7 +180,7 @@ sudo -E pip install jupyter-rsession-proxy
 mamba install r-base r-essentials r-irkernel -y
 
 # Enable useful bioconductor packages
-# mamba install -c bioconda bioconductor-ggbio bioconductor-genomicranges
+mamba install -c bioconda bioconductor-ggbio bioconductor-genomicranges
 
 # Support for Java in R
 mamba install -c r r-rjava -y
