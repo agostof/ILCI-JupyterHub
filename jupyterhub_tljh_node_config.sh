@@ -227,5 +227,75 @@ echo "INSTALLATION DONE" > ~/provision_status.txt
 #
 
 
+### ================ ILCI-specific
+### add GROUPS
+for G in ilci_{staff,cifms,caccia,ciciesa,ciwa};do addgroup $G;done
 
+#### JUPYTER Installation
+#mkdir -pv /opt/shared/data
+#mkdir -pv /opt/shared/notebooks
+mkdir -pv /opt/shared/commons/{data,notebooks,src}
+ln -s /opt/shared /etc/skel/shared
+
+# add a shared link at root
+ln -s /opt/shared/ /shared
+### 
+
+
+# Install rookit checkers (maybe in post install since it ask for mailer configuration):
+apt install rkhunter chkrootkit
+cat >  /etc/rkhunter.conf.local <<EOF
+PKGMGR=DPKG
+# if root users are allowed add
+ALLOW_SSH_ROOT_USER=YES
+
+MIRRORS_MODE=0
+UPDATE_MIRRORS=1
+WEB_CMD=""
+EOF
+
+# run checks with 
+# sudo rkhunter --update --propupd --check
+
+
+# sudo apt install bcftools
+# sudo apt install tabix
+mamba install -y -c bioconda bcftools tabix samtools
+mamba install -y -c bioconda r-dartr
+
+# add LATEX support
+apt install -y --no-install-recommends texlive texlive-xetex texlive-fonts-recommended texlive-plain-generic
+
+## apt install -y unzip
+
+### EXTRA libraries  might not be needed
+## sudo apt install -y datamash
+## sudo apt install gdal-config
+## sudo apt install libgdal-dev libproj-dev
+## sudo apt-get install gdal-bin
+
+# clean cache
+apt-get clean
+
+# clean conda
+conda clean -ay --force-pkgs-dirs
+
+## disable these extensions on workshop hub
+sudo -E jupyter-labextension disable jupyter-vuetify
+sudo -E jupyter-labextension disable @jupyterlab/git
+sudo -E jupyter-labextension disable @lckr/jupyterlab_variableinspector
+sudo -E jupyter-labextension disable jupyterlab-plotly
+sudo -E jupyter-labextension disable @voila-dashboards/jupyterlab-preview
+sudo -E jupyter-labextension disable jupyterlab-dash
+sudo -E jupyter-labextension disable jupyter-vue
+#find default core pluggins (extensions)  names under /opt/tljh/user/share/jupyter/lab/schemas/@jupyterlab
+sudo -E jupyter labextension disable @jupyterlab/extensionmanager-extension
+sudo -E jupyter labextension enable @jupyterlab/inspector-extension
+sudo -E jupyter labextension disable @jupyterlab/inspector-extensionjupyter
+sudo -E jupyter labextension enable @jupyterlab/toc-extension
+
+sudo -E jupyter-labextension disable @lckr/jupyterlab-variableinspector:consoles
+sudo -E jupyter-labextension disable jupyterlab_extension/variableinspector:IVariableInspectorManager
+sudo -E jupyter-labextension disable @lckr/jupyterlab-variableinspector:notebooks
+sudo -E jupyter-labextension disable jupyterlab_extension/variableinspector:IVariableInspectorManager
 
