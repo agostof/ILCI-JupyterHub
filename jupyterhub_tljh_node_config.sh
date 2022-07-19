@@ -21,9 +21,21 @@ sudo systemctl disable --now snapd.seeded
 sudo apt -y purge snapd
 rmdir /root/snap
 
-apt install docker.io -y
+### Update system packages
+sudo apt-get update -y
+sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -o Dpkg::Options::=--force-confold
 
-curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+### install ACL and TREE
+sudo apt install acl
+sudo apt install tree
+
+## Add DOCKER support
+sudo apt install docker.io -y
+
+# curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+# updated for v2.6.1
+curl -SL "https://github.com/docker/compose/releases/download/v2.6.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
 chmod +x /usr/local/bin/docker-compose
 
 # useradd $ADMIN_USER_NAME --group docker,sudo --shell /bin/bash
@@ -205,7 +217,7 @@ mamba install -c r r-arrow -y
 # ilci_hub_scripts/install_rstudio_and_shiny.sh
 
 # === KOTLIN support INSTALLATION
-mamba install -c jetbrains kotlin-jupyter-kernel
+# mamba install -c jetbrains kotlin-jupyter-kernel
 
 
 # ### LETS ENCRYPT CONFIGURATION
