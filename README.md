@@ -2,14 +2,16 @@
 
 ## Overview
 
-The script(s) here help to get a JupyterHub installation up and running using the TLJH distribution. In addition to the basic hub configuration, it installs (or provides notes for installing) packages relevant to plant breeding (e.g. R, sommer, rTASSEL, bioconductor). 
+The script(s) here help to get a JupyterHub installation up and running using the TLJH ([The Littlest JupyterHub](https://tljh.jupyter.org/en/latest/)) distribution.
+
+The [jupyterhub_tljh_node_config.sh](jupyterhub_tljh_node_config.sh) script creates a basic hub configuration. In addition it installs (or provides notes for installing) packages relevant to plant breeding (e.g. R, sommer, rTASSEL, bioconductor).
 
 **Important**. The core script assumes access to a machine (either VM or physical). It will not work under Docker due to its depedency on systemd.
 
 ### Installation / post installation notes:
 
 * Check if java is operating correctly if not clean the cache and reinstall it
-* Saving Hub configuration
+* For saving / exporting the hub's configuration use the [save_envs.sh](ilci_hub_scripts/save_envs.sh) script or:
 ```bash
 # #======= SAVE environment settings
 # save hub env
