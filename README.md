@@ -4,9 +4,9 @@
 
 The script(s) here help to get a JupyterHub installation up and running using the TLJH ([The Littlest JupyterHub](https://tljh.jupyter.org/en/latest/)) distribution.
 
-The [jupyterhub_tljh_node_config.sh](jupyterhub_tljh_node_config.sh) script creates a basic hub configuration. In addition it installs (or provides notes for installing) packages relevant to plant breeding (e.g. R, sommer, rTASSEL, bioconductor).
+The [jupyterhub_tljh_node_config.sh](jupyterhub_tljh_node_config.sh) script creates a basic hub configuration. In addition, it installs (or provides notes for installing) packages relevant to plant breeding (e.g. R, sommer, rTASSEL, bioconductor).
 
-**Important**. The core script assumes access to a machine (either VM or physical). It will not work under Docker due to its depedency on systemd.
+**Important**. The core script assumes superuser access to a machine (e.g. VM or physical) for installing TLJH. The TLJH installation will not work under Docker due to its depedency on systemd.
 
 ### Installation / post installation notes:
 
