@@ -206,7 +206,18 @@ mamba install -c r r-devtools -y
 #        or install.packages('sommer')
 ## mamba install -c r r-sommer -y
 # install sommer with devtools
-# 
+cat > /opt/tljh/user/update_sommer.R <<EOF
+devtools::install_github('covaruber/sommer')
+EOF
+# create update script
+cat >  /usr/bin/update_sommer.sh <<"EOF"
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+R CMD BATCH source("/opt/tljh/user/update_sommer.R")
+EOF 
+
 mamba install -c r r-arrow -y
 # install rTASSEL
 # mamba install -c bioconda bioconductor-biocstyle
@@ -271,6 +282,8 @@ mamba install -y -c bioconda r-dartr
 
 # add LATEX support
 apt install -y --no-install-recommends texlive texlive-xetex texlive-fonts-recommended texlive-plain-generic
+apt-get install lmodern
+
 
 ## apt install -y unzip
 
