@@ -2,7 +2,7 @@
 
 ## Overview
 
-The files on this directory contain informatino about the **class-hub** JupyterHub environment created with TLJH. In addition to the TLJH `base` and `hub` environments the individual package listing for both R and Python are stored.
+The files on this directory contain information about the **class-hub** JupyterHub environment created with TLJH. In addition to the TLJH `base` and `hub` environments the individual package listing for both R and Python are stored.
 
 ## Environment Files
 ```
