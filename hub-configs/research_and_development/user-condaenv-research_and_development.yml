@@ -72,7 +72,7 @@ dependencies:
   - chardet=4.0.0=py39hf3d152e_1
   - charset-normalizer=2.0.0=pyhd8ed1ab_0
   - colorama=0.4.4=pyh9f0ad1d_0
-  - conda=4.10.3=py39hf3d152e_2
+  - conda=4.14.0=py39hf3d152e_0
   - conda-package-handling=1.7.3=py39h3811e60_0
   - cryptography=3.4.8=py39hbca0aa6_0
   - curl=7.83.1=h7bff187_0
@@ -296,8 +296,11 @@ dependencies:
   - r-generics=0.1.3=r41hc72bb7e_0
   - r-gert=1.5.0=r41h163148b_2
   - r-ggally=2.1.2=r41hc72bb7e_0
+  - r-gganimate=1.0.7=r41hc72bb7e_0
+  - r-ggiraph=0.8.2=r41h7525677_0
   - r-ggplot2=3.3.6=r41hc72bb7e_0
   - r-gh=1.3.0=r41hc72bb7e_0
+  - r-gifski=1.6.6_1=r41h06615bd_0
   - r-gistr=0.9.0=r41hc72bb7e_0
   - r-gitcreds=0.1.1=r41hc72bb7e_0
   - r-glmnet=4.1_2=r41h8da6f51_0
@@ -476,6 +479,7 @@ dependencies:
   - r-triebeard=0.3.0=r41h7525677_1004
   - r-ttr=0.24.3=r41h06615bd_0
   - r-tune=1.0.0=r41hc72bb7e_0
+  - r-tweenr=2.0.0=r41h7525677_0
   - r-tzdb=0.3.0=r41h7525677_0
   - r-urlchecker=1.0.1=r41hc72bb7e_0
   - r-urltools=1.7.3=r41h7525677_2
@@ -521,9 +525,9 @@ dependencies:
   - tinycss2=1.1.1=pyhd8ed1ab_0
   - tk=8.6.12=h27826a3_0
   - tktable=2.10=hb7b940f_3
+  - toolz=0.12.0=pyhd8ed1ab_0
   - tqdm=4.62.3=pyhd8ed1ab_0
   - traitlets=5.3.0=pyhd8ed1ab_0
-  - tzdata=2021c=he74cb21_0
   - urllib3=1.26.7=pyhd8ed1ab_0
   - wcwidth=0.2.5=pyh9f0ad1d_2
   - wheel=0.37.0=pyhd8ed1ab_1
@@ -555,23 +559,39 @@ dependencies:
     - addict==2.4.0
     - affine==2.3.1
     - aiohttp==3.8.1
+    - aiohttp-remotes==1.2.0
+    - aiohttp-wsgi==0.10.0
     - aiosignal==1.2.0
     - alembic==1.8.1
+    - altair==4.2.0
     - ansi2html==1.8.0
     - anyio==3.6.1
+    - appdirs==1.4.4
+    - appyter==0.19.15
+    - arrow==1.2.2
+    - asgiref==3.5.2
     - astunparse==1.6.3
     - async-generator==1.10
     - async-timeout==4.0.2
     - babel==2.10.3
+    - bidict==0.22.0
+    - binaryornot==0.4.4
     - black==22.6.0
+    - blinker==1.5
+    - bokeh==2.4.3
     - branca==0.5.0
     - brotli==1.0.9
+    - bs4==0.0.1
     - cachetools==5.2.0
     - certipy==0.1.3
     - click==8.1.3
+    - click-default-group==1.2.2
     - click-plugins==1.1.1
     - cligj==0.7.2
     - cloudpickle==2.1.0
+    - commonmark==0.9.1
+    - contextvars==2.4
+    - cookiecutter==2.1.1
     - cycler==0.11.0
     - dash==2.6.0
     - dash-core-components==2.0.0
@@ -585,13 +605,15 @@ dependencies:
     - docutils==0.19
     - fastapi==0.79.0
     - fiona==1.8.21
-    - flask==2.1.3
+    - flask==2.0.3
     - flask-compress==1.12
+    - flask-cors==3.0.10
     - flatbuffers==1.12
     - folium==0.12.1.post1
     - fonttools==4.34.4
     - frozenlist==1.3.1
-    - fsspec==2022.7.1
+    - fsspec==2022.1.0
+    - fusepy==3.0.1
     - gast==0.4.0
     - geopandas==0.11.1
     - gitdb==4.0.9
@@ -601,9 +623,12 @@ dependencies:
     - google-pasta==0.2.0
     - greenlet==1.1.2
     - grpcio==1.48.0
+    - h11==0.13.0
     - h5py==3.7.0
     - heapdict==1.0.1
+    - htmltools==0.1.2
     - imageio==2.20.0
+    - immutables==0.18
     - importlib-metadata==4.12.0
     - install==1.3.5
     - ipympl==0.9.1
@@ -614,9 +639,11 @@ dependencies:
     - ipywidgets==7.7.1
     - isort==5.10.1
     - itsdangerous==2.1.2
+    - jinja2-time==0.2.0
     - joblib==1.1.0
     - json5==0.9.8
     - jupyter-dash==0.4.2
+    - jupyter-desktop-server==0.1.3
     - jupyter-packaging==0.12.2
     - jupyter-resource-usage==0.6.1
     - jupyter-rsession-proxy==2.0.1
@@ -634,6 +661,7 @@ dependencies:
     - jupyterlab-link-share==0.2.4
     - jupyterlab-server==2.15.0
     - jupyterlab-spreadsheet-editor==0.6.1
+    - jupyterlab-templates==0.3.1
     - jupyterlab-widgets==1.1.1
     - jupytext==1.14.1
     - keras==2.9.0
@@ -641,7 +669,9 @@ dependencies:
     - kiwisolver==1.4.4
     - lckr-jupyterlab-variableinspector==3.0.9
     - libclang==14.0.1
+    - linkify-it-py==2.0.0
     - locket==1.0.0
+    - lxml==4.9.1
     - mako==1.2.1
     - mapclassify==2.4.3
     - markdown==3.4.1
@@ -669,6 +699,8 @@ dependencies:
     - palettable==3.3.0
     - pamela==1.0.0
     - pandas==1.4.3
+    - panel==0.13.1
+    - param==1.12.2
     - partd==1.2.0
     - pathspec==0.9.0
     - patsy==0.5.2
@@ -678,26 +710,42 @@ dependencies:
     - plotly==5.4.0
     - plotnine==0.9.0
     - protobuf==3.19.4
+    - pyarrow==9.0.0
     - pyasn1==0.4.8
     - pyasn1-modules==0.2.8
+    - pyct==0.4.8
     - pydantic==1.8.2
+    - pydeck==0.7.1
+    - pympler==1.0.1
     - pyproj==3.3.1
     - pyquaternion==0.9.9
+    - python-dotenv==0.20.0
+    - python-engineio==4.0.0
     - python-json-logger==2.0.4
+    - python-multipart==0.0.5
+    - python-slugify==6.1.2
+    - python-socketio==5.0.4
     - pytz==2022.1
+    - pytz-deprecation-shim==0.1.0.post0
+    - pyviz-comms==2.2.0
     - pywavelets==1.3.0
     - pyyaml==6.0
     - rasterio==1.3.0
     - requests-oauthlib==1.3.1
     - retrying==1.3.3
+    - rich==12.5.1
+    - rise==5.7.1
+    - rpy2==3.5.3
     - rsa==4.9
     - ruamel-yaml==0.17.21
     - ruamel-yaml-clib==0.2.6
     - scikit-image==0.19.3
     - scikit-learn==1.1.1
     - scipy==1.9.0
-    - setuptools==63.2.0
+    - semver==2.13.0
+    - setuptools==65.1.0
     - shapely==1.8.2
+    - shiny==0.2.5
     - simpervisor==0.4
     - smmap==5.0.0
     - sniffio==1.2.0
@@ -707,6 +755,7 @@ dependencies:
     - starlette==0.19.1
     - statistics==1.0.3.5
     - statsmodels==0.13.2
+    - streamlit==1.12.0
     - sympy==1.10.1
     - tblib==1.7.0
     - tenacity==8.0.1
@@ -717,22 +766,30 @@ dependencies:
     - tensorflow-estimator==2.9.0
     - tensorflow-io-gcs-filesystem==0.26.0
     - termcolor==1.1.0
+    - text-unidecode==1.3
     - threadpoolctl==3.1.0
     - tifffile==2022.7.28
     - toml==0.10.2
     - tomli==2.0.1
     - tomlkit==0.11.1
-    - toolz==0.12.0
     - tornado==6.1
     - typing-extensions==4.3.0
+    - tzdata==2022.2
+    - tzlocal==4.2
+    - uc-micro-py==1.0.1
+    - uvicorn==0.18.2
+    - validators==0.20.0
     - voila==0.3.6
+    - watchdog==2.1.9
+    - watchgod==0.8.2
     - webencodings==0.5.1
     - websocket-client==1.3.3
     - websockets==10.3
-    - werkzeug==2.2.1
+    - websockify==0.10.0
+    - werkzeug==2.0.3
     - widgetsnbextension==3.6.1
     - wrapt==1.14.1
-    - yarl==1.8.1
+    - yarl==1.7.2
     - zict==2.2.0
     - zipp==3.8.1
 prefix: /opt/tljh/user
