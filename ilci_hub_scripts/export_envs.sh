@@ -14,6 +14,28 @@ pushd ${OUT_DIR}
 # ignore $1 after this
 shift
 
+create_readme(){
+# create basic README file 
+cat << EOF > README.md
+# TLJH Configuration for ${HUB}
+
+## Overview
+
+The files on this directory contain information about the **${HUB}** JupyterHub environment created with TLJH. In addition to the TLJH \`base\` and \`hub\` environments the individual package listing for both R and Python are stored.
+
+## Environment Files
+\`\`\`
+${HUB}
+├── hub-requirements-${HUB}.txt   <- TLJH "hub" python venv packages.
+├── user-condaenv-${HUB}.yml      <- Conda packages installed.
+├── user-requirements-${HUB}.txt  <- TLJH "user" conda-env python packages.
+├── user-r-packages-${HUB}.txt    <- R packages names only
+└── user-r-packages-${HUB}.w_version.tsv  <- R packages with versions.
+\`\`\`
+EOF
+}
+
+
 # #======= SAVE environment settings
 # save hub env
 echo "Activating HUB venv."
@@ -36,22 +58,8 @@ echo "Export conda base env..."
 conda env export --name=base > user-condaenv-${HUB}.yml
 conda deactivate
 
-# create basic README file 
-#
-cat << EOF > README.md
-# TLJH Configuration for ${HUB}
+# create README.md
+create_readme
 
-## Overview
 
-The files on this directory contain information about the **${HUB}** JupyterHub environment created with TLJH. In addition to the TLJH \`base\` and \`hub\` environments the individual package listing for both R and Python are stored.
 
-## Environment Files
-\`\`\`
-${HUB}
-├── hub-requirements-${HUB}.txt   <- TLJH "hub" python venv packages.
-├── user-condaenv-${HUB}.yml      <- Conda packages installed.
-├── user-requirements-${HUB}.txt  <- TLJH "user" conda-env python packages.
-├── user-r-packages-${HUB}.txt    <- R packages names only
-└── user-r-packages-${HUB}.w_version.tsv  <- R packages with versions.
-\`\`\`
-EOF
