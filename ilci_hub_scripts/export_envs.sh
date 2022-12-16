@@ -1,7 +1,29 @@
 #!/bin/bash
 
+#set hub name prefix
 HUB=$1
-OUT_DIR=$1
+
+usage()
+{
+cat<<EOF
+usage:
+   $(basename $0) HUB_NAME
+e.g.
+   $(basename $0) jupyter-sandbox
+EOF
+}
+
+
+if [ "${HUB}" = "" ]
+then
+  usage
+  exit 0
+fi
+
+set -u
+# use hub name as output directory 
+OUT_DIR=$HUB
+
 SCRIPT_DIR=$(dirname $(readlink -e $0))
 echo "Exporting environment for: ${HUB}"
 echo "Files will be saved to: ${OUT_DIR}"
@@ -55,7 +77,7 @@ echo "Saving R package list..."
 Rscript ${SCRIPT_DIR}/save_installed_R_packages_to_list.R user-r-packages-${HUB}.txt
 
 echo "Export conda base env..."
-conda env export --name=base > user-condaenv-${HUB}.yml
+conda env export --name=base --from-history > user-condaenv-${HUB}.yml
 conda deactivate
 
 # create README.md
