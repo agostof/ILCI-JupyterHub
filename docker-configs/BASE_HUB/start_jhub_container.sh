@@ -1,0 +1,1 @@
+docker run -it --rm -p8001:8000 -v $PWD:/config -v $PWD/native_authenticator_templates/templates:/templates jupyterhub/jupyterhub /bin/bash
