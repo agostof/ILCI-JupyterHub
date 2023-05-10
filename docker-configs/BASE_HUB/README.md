@@ -45,7 +45,6 @@ Please note that that users will still need to be added to the OS running inside
 ### Launch JupyterHub
 
 ```bash
-#jupyterhub --ip 0.0.0.0 --port 8000 -f /config/jupyterhub_configV3.py
 /config/run_hub.sh
 
 ```
@@ -54,3 +53,5 @@ Please note that that users will still need to be added to the OS running inside
 Create a password for the admin user by going to:
 http://hostname:8001/hub/signup
 
+### Note
+Please note that the commands above are for testing purposes only. For production use a  JupyterHub distribution.
