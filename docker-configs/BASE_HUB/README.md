@@ -45,19 +45,21 @@ adduser $USER_NAME --disabled-password --gecos ""
 # if password is needed it can be added programatically
 chpasswd <<<"$USER_NAME:$USER_PASS"
 ```
-Check the [create_users.sh](create_users.sh) script for an example.
+Check the [create_users.sh](src/create_users.sh) script for an example.
 
 
-### Install basic dependencies
+### Configure Hub
 
+Install basic dependencies:
 ```bash
-/config/provision.sh
+/config/src/provision.sh
 ```
+or if your are adventurous, you can install the dependencies and mini conda at the same time with [provision_with_conda.sh](src/provision_with_conda.sh). For the love of your time, this is not recommended if you are not familiar with conda or jupterhub at all. Again we strongly recommend that you use a [JupyterHub distribution](https://tljh.jupyter.org/en/latest/topic/whentouse.html) for production use.
 
 ### Launch JupyterHub
 
 ```bash
-/config/run_hub.sh
+/config/src/run_hub.sh
 
 ```
 ### Connect to JupyterHub

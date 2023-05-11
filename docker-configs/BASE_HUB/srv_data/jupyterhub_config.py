@@ -13,8 +13,10 @@ c.Spawner.debug = True
 # c.Spawner.args = ['--NotebookApp.allow_origin=*', '--log-level=DEBUG']
 # c.Spawner.args = [ '--log-level=DEBUG']
 
-# add custom spawner that will load the user Conda Env
+# Add custom spawner that will load the user Conda Env
+#   adjust depending on your situation
 # c.LocalProcessSpawner.cmd = "/opt/ilci/hub/bin/user-hub"
+# c.LocalProcessSpawner.cmd = "/opt/ilci/user/bin/user-hub"
 
 # Authenticate users with PAM
 # c.JupyterHub.authenticator_class = 'jupyterhub.auth.PAMAuthenticator'
