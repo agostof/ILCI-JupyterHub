@@ -11,16 +11,17 @@ adduser ${UNAME} --disabled-password --gecos ""
 # ================= CONDA PROVISIONING =====================
 curl -LO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/ilci/user
+# cleanup 
+rm -v Miniconda3-latest-Linux-x86_64.sh
+
+# work on the base env
 . /opt/ilci/user/bin/activate 
 conda install -y mamba -n base -c conda-forge
 conda install -y -n base conda-libmamba-solver
 conda config --set solver libmamba
-
 conda update -y -n base conda mamba
-#conda install -y -n base conda-libmamba-solver
-#conda config --set solver.libmamba true
-#conda config --set solver libmamba
 
+# instal jupyterhub+lab dependencies
 pip install -U pip
 pip install jupyterlab jupyterhub
 
