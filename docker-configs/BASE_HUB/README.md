@@ -54,7 +54,7 @@ Install basic dependencies:
 ```bash
 /config/src/provision.sh
 ```
-or if your are adventurous, you can install the dependencies and mini conda at the same time with [provision_with_conda.sh](src/provision_with_conda.sh). For the love of your time, this is not recommended if you are not familiar with conda or jupterhub at all. Again we strongly recommend that you use a [JupyterHub distribution](https://tljh.jupyter.org/en/latest/topic/whentouse.html) for production use.
+or if your are adventurous, you can install the dependencies and mini conda at the same time with [provision_with_conda.sh](src/provision_with_conda.sh). For the love of your time :), this is not recommended if you are not familiar with conda or jupterhub at all. We strongly recommend that you use a [JupyterHub distribution](https://tljh.jupyter.org/en/latest/topic/whentouse.html) for production use.
 
 ### Launch JupyterHub
 
