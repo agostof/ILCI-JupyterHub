@@ -1,13 +1,17 @@
-RSTUDIO
+# RSTUDIO
 # =====================    RSTUDIO   ================================
 # RSTUDIO installation
 sudo apt-get install gdebi-core
-#wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.1-372-amd64.deb
-wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.2-382-amd64.deb
-gdebi --non-interactive rstudio-server-2021.09.2-382-amd64.deb
-
+wget wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.12.1-402-amd64.deb
+gdebi --non-interactive rstudio-server-2023.12.1-402-amd64.deb 
 # check logs
 # journalctl -u rstudio-server
+
+# The configuration below moves the Rstudio server to port 82
+# so that it does not conflict with the jupyterhub proxy.
+# The `rsession-ld-library-path` and `rsession-which-r` 
+# are not needed in most cases, if the connections are managed by 
+# the jupyterhub proxy.
 
 # create configration
 cat > /etc/rstudio/rserver.conf <<EOF
@@ -28,6 +32,7 @@ server-set-umask=0
 
 EOF
 
+# if the jupyterhub extentions
 sleep 5
 systemctl restart rstudio-server
 
@@ -46,14 +51,18 @@ systemctl restart rstudio-server
 # If the R studio server does not point to a valid R installation it will fail
 
 # RSHINY Installation
-wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.17.973-amd64.deb
-gdebi --non-interactive shiny-server-1.5.17.973-amd64.deb
+wget https://download3.rstudio.org/ubuntu-18.04/x86_64/shiny-server-1.5.21.1012-amd64.deb
+gdebi --non-interactive shiny-server-1.5.21.1012-amd64.deb
 
 
 # . /opt/tljh/user/bin/activate
 pip install jupyter-shiny-proxy
 pip install jupyter-rsession-proxy
 
+# since the servers will be managed by the jupyterhub proxy,
+# we can disable them system-wide
+systemctl disable rstudio-server
+systemctl disable shiny-server
 
 # ### would this  config work for RSTUDIO
 # hub:
